@@ -1,0 +1,2 @@
+Castle,Cody,codespawn.cc@gmail.com,Red,10/24/1990
+Pereira,Alex,middleweight@ufc.com,Blue,11/12/2022

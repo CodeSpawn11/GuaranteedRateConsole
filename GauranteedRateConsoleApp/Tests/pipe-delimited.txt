@@ -1,0 +1,3 @@
+Volkanovski|Alexander|featherweight@ufc.com|Purple|12/14/2019
+Sterling|Aljamain|bantamweight@ufc.com|Pink|03/6/2021
+Figueiredo|Deiveson|flyweight@ufc.com|Brown|01/22/2022

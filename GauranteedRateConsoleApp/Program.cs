@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 public class Customer
@@ -37,18 +38,26 @@ class Program
         #endregion
 
 
-        // Parse the pipe-delimited file
-        var pipeDelimitedRecords = File.ReadAllLines(@"Tests\pipe-delimited.txt")
+        // This will get the current WORKING directory (i.e. \bin\Debug)
+        string workingDirectory = Environment.CurrentDirectory;
+
+        // This will get the current PROJECT directory
+        string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+
+        string path = projectDirectory + @"\Tests\pipe-delimited.txt";
+        var pipeDelimitedRecords = File.ReadAllLines(path)
             .Select(x => x.Split('|'))
             .Select(x => new Customer(x[0], x[1], x[2], x[3], DateTime.Parse(x[4])));
 
         // Parse the comma-delimited file
-        var commaDelimitedRecords = File.ReadAllLines(@"Tests\comma-delimited.txt")
+        path = projectDirectory + @"\Tests\comma-delimited.txt";
+        var commaDelimitedRecords = File.ReadAllLines(path)
             .Select(x => x.Split(','))
             .Select(x => new Customer(x[0], x[1], x[2], x[3], DateTime.Parse(x[4])));
 
         // Parse the space-delimited file
-        var spaceDelimitedRecords = File.ReadAllLines(@"Tests\space-delimited.txt")
+        path = projectDirectory + @"\Tests\space-delimited.txt";
+        var spaceDelimitedRecords = File.ReadAllLines(path)
             .Select(x => x.Split(' '))
             .Select(x => new Customer(x[0], x[1], x[2], x[3], DateTime.Parse(x[4])));
 
